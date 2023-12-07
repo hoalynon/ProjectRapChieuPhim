@@ -1,0 +1,114 @@
+.register_form {
+    width: 483px;
+    height: 603px;
+    border-radius: 0px 0px 30px 30px;
+    /* flex-shrink: 0; */
+    background-color: #F9DEC9;
+    padding: 12px 26px;
+    /* display: block; */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 4px; */
+}
+
+label {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    /* display: flex; */
+    width: 248px;
+    height: 39px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register_form input[type="text"],
+.register_form input[type="tel"],
+.register_form input[type="email"],
+.register_form input[type="password"] {
+    width: 434px;
+    height: 45px;
+    border: 1px solid #000;
+    background: #FDF0E4;
+    margin-top: 4px;
+    /* margin-bottom: 2px; */
+}
+
+.register_form input[type="date"] {
+    width: 278px;
+    height: 45px;
+    border: 1px solid #000;
+    background: #FDF0E4;
+    margin-top: 4px;
+    /* margin-bottom: 2px; */
+}
+
+.register_form input[type="radio"] {
+    margin-right: 5px;
+}
+
+.gender-container {
+    /* display: flex;
+    align-items: center; */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.register_form .gender-container label {
+    display: inline;
+    margin-right: 10px;
+}
+
+span {
+    color: #1932B1;
+}
+
+span:hover {
+    text-decoration: underline;
+}
+
+.required {
+    color: #ED2B2A;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+button.submit {
+    border-radius: 30px;
+    background: #BB2525;
+    width: 202px;
+    height: 58px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 17px;
+    margin-bottom: 23px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button.submit span {
+    /* display: flex;
+    width: 202px;
+    height: 58px; */
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #F9DEC9;
+    text-align: center;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
