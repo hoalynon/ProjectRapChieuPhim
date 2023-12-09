@@ -8,7 +8,8 @@
 
                 <div class="form-group">
                 <label>ID Suất Chiếu</label><br>
-                <input type="text" name="id" value="{{ $slot->sl_id }}" placeholder="Nhập id suất chiếu">
+                <input type="text" name="id" value="{{ $slot->sl_id }}" placeholder="Nhập id suất chiếu" readonly>
+                <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                 </div>
 
 
@@ -16,24 +17,28 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>ID Phòng Chiếu</label><br>
-                    <select name="room" style="width:150px; height: 30px">
+                    <select style="width:150px; height: 30px" disabled>
                         @foreach ($rooms as $room)
                         <option value="{{ $room->r_id }}" {{ $room->r_id == $slot->r_id ? 'selected="selected"' : '' }}> {{ $room->r_id }}
                         </option>
                         @endforeach
                     </select>
+                    <input type="hidden" name="room" placeholder="ID phòng chiếu" value="{{ $slot->r_id }}" readonly>
+                    <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Tên Phim</label><br>
-                    <select name="movie" style="width:150px; height: 30px">
+                    <select style="width:150px; height: 30px" disabled>
                         @foreach ($movies as $movie)
                         <option value="{{ $movie->mv_id }}"  {{ $slot->mv_id == $movie->mv_id ? 'selected="selected"' : '' }}> {{ $movie->mv_name }}
                         </option>
                         @endforeach
                     </select>
+                    <input type="hidden" name="movie" value="{{ $slot->mv_id }}" readonly>
+                    <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                 </div>
             </div>
         </div>

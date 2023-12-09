@@ -19,6 +19,6 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-center">
-        {!! $tickets->links() !!}
+        {!! $tickets->links('pagination::bootstrap-4') !!}
     </div>
 @endsection

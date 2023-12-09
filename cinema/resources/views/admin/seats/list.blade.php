@@ -15,7 +15,7 @@
             {!! \App\Helpers\Helper::seat($seats) !!}
         </tbody>
     </table>
-    <div class="d-flex justify-content-center">
-        {!! $seats->links() !!}
+    <div class="d-flex justify-content-center" style="height: 200px">
+        {!! $seats->links('pagination::bootstrap-4') !!}
     </div>
 @endsection

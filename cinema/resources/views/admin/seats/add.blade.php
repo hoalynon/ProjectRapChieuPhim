@@ -40,8 +40,8 @@
                         <label for="type_vip" class="custom-control-label">VIP</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input class="custom-control-input" value = "couple" type="radio" id="type_couple" name="type">
-                        <label for="type_couple" class="custom-control-label">Ghế đôi</label>
+                        <input class="custom-control-input" value = "sweetbox" type="radio" id="type_sweetbox" name="type">
+                        <label for="type_sweetbox" class="custom-control-label">SweetBox</label>
                     </div>
                 </div>
             </div>

@@ -16,6 +16,6 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-center">
-        {!! $years->links() !!}
+        {!! $years->links('pagination::bootstrap-4') !!}
     </div>
 @endsection

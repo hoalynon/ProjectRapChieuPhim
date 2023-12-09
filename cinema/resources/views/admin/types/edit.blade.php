@@ -13,7 +13,8 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>ID</label>
-                <input type="text" name="id" value="{{ $type->type_id }}" placeholder="Nhập ID thể loại phim">
+                <input type="text" name="id" value="{{ $type->type_id }}" placeholder="Nhập ID thể loại phim" readonly>
+                <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                 </div>
             </div>
         </div>

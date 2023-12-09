@@ -21,6 +21,6 @@
     </tbody>
 </table>
 <div class="d-flex justify-content-center">
-    {!! $customers->links() !!}
+    {!! $customers->links('pagination::bootstrap-4') !!}
 </div>
 @endsection

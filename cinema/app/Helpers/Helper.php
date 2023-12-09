@@ -4,6 +4,8 @@ namespace App\Helpers;
 use Illuminate\Support\Str;
 use App\Models\Movie;
 use App\Models\Customer;
+use App\Models\Ticket;
+use App\Models\Slot;
 
 class Helper{
     public static function customer($customers){
@@ -316,4 +318,194 @@ class Helper{
                                 '<span class="btn btn-success btn-xs">Có</span>';
     }
 
+    public static function setseat($sl_id){
+
+        $html = '';
+        $count = 0;
+
+        $room = Slot::select('r_id')->where('sl_id','=', $sl_id)->first()->r_id;
+        
+        $count = 120;
+        $html .= '
+        <div class="row">';
+        for ($i = 1; $i < 13; $i++){
+            $tkid = ('A' . strval($i));
+            $ticket = Ticket::select('st_id')->where('sl_id', '=', $sl_id)
+                                        ->where('st_id', '=', $tkid)
+                                        ->where('r_id', '=', $room)
+                                        ->first();
+            if ($ticket == null){
+                $html .= '
+                        <label style="cursor: pointer;">
+                        <div class="standard" style="top: 252px; left: '. strval($count) .'px; position: absolute; ">
+                        <input type="checkbox" name="tickets[]" id="'. $tkid .'" value="'. $tkid .'" onclick="myFunction('. $tkid .')">'. $tkid .'
+                        </div>
+                    <label>
+                ';
+            }
+            else {
+                $html .= '<div class="standard" style="top: 252px; left: '. strval($count) .'px; position: absolute; background-color: #D80032">'. $tkid .'</div>';
+            }
+            $count += 45;
+        }
+        $html .= '</div>';
+
+
+        $count = 120;
+        $html .= '
+        <div class="row">';
+        for ($i = 1; $i < 13; $i++){
+            $tkid = ('B' . strval($i));
+            $ticket = Ticket::select('st_id')->where('sl_id', '=', $sl_id)
+                                        ->where('st_id', '=', $tkid)
+                                        ->where('r_id', '=', $room)
+                                        ->first();
+            if ($ticket == null){
+                $html .= '
+                        <label style="cursor: pointer;">
+                        <div class="standard" style="top: 302px; left: '. strval($count) .'px; position: absolute; ">
+                        <input type="checkbox" name="tickets[]" id="'. $tkid .'" value="'. $tkid .'" onclick="myFunction('. $tkid .')">'. $tkid .'
+                        </div>
+                    <label>
+                ';
+            }
+            else {
+                $html .= '<div class="standard" style="top: 302px; left: '. strval($count) .'px; position: absolute; background-color: #D80032">'. $tkid .'</div>';
+            }
+            $count += 45;
+        }
+        $html .= '</div>';
+
+
+        $count = 120;
+        $html .= '
+        <div class="row">';
+        for ($i = 1; $i < 13; $i++){
+            $tkid = ('C' . strval($i));
+            $ticket = Ticket::select('st_id')->where('sl_id', '=', $sl_id)
+                                        ->where('st_id', '=', $tkid)
+                                        ->where('r_id', '=', $room)
+                                        ->first();
+            if ($ticket == null){
+                $html .= '
+                        <label style="cursor: pointer;">
+                        <div class="standard" style="top: 352px; left: '. strval($count) .'px; position: absolute; ">
+                        <input type="checkbox" name="tickets[]" id="'. $tkid .'" value="'. $tkid .'" onclick="myFunction('. $tkid .')">'. $tkid .'
+                        </div>
+                    <label>
+                ';
+            }
+            else {
+                $html .= '<div class="standard" style="top: 352px; left: '. strval($count) .'px; position: absolute; background-color: #D80032">'. $tkid .'</div>';
+            }
+            $count += 45;
+        }
+        $html .= '</div>';
+
+
+        $count = 120;
+        $html .= '
+        <div class="row">';
+        for ($i = 1; $i < 13; $i++){
+            $tkid = ('D' . strval($i));
+            $ticket = Ticket::select('st_id')->where('sl_id', '=', $sl_id)
+                                        ->where('st_id', '=', $tkid)
+                                        ->where('r_id', '=', $room)
+                                        ->first();
+            if ($ticket == null){
+                $html .= '
+                        <label style="cursor: pointer;">
+                        <div class="vip" style="top: 402px; left: '. strval($count) .'px; position: absolute; ">
+                        <input type="checkbox" name="tickets[]" id="'. $tkid .'" value="'. $tkid .'" onclick="myFunction('. $tkid .')">'. $tkid .'
+                        </div>
+                    <label>
+                ';
+            }
+            else {
+                $html .= '<div class="vip" style="top: 402px; left: '. strval($count) .'px; position: absolute; background-color: #D80032">'. $tkid .'</div>';
+            }
+            $count += 45;
+        }
+        $html .= '</div>';
+
+
+        $count = 120;
+        $html .= '
+        <div class="row">';
+        for ($i = 1; $i < 13; $i++){
+            $tkid = ('E' . strval($i));
+            $ticket = Ticket::select('st_id')->where('sl_id', '=', $sl_id)
+                                        ->where('st_id', '=', $tkid)
+                                        ->where('r_id', '=', $room)
+                                        ->first();
+            if ($ticket == null){
+                $html .= '
+                        <label style="cursor: pointer;">
+                        <div class="vip" style="top: 452px; left: '. strval($count) .'px; position: absolute; ">
+                        <input type="checkbox" name="tickets[]" id="'. $tkid .'" value="'. $tkid .'" onclick="myFunction('. $tkid .')">'. $tkid .'
+                        </div>
+                    <label>
+                ';
+            }
+            else {
+                $html .= '<div class="vip" style="top: 452px; left: '. strval($count) .'px; position: absolute; background-color: #D80032">'. $tkid .'</div>';
+            }
+            $count += 45;
+        }
+        $html .= '</div>';
+
+
+        $count = 120;
+        $html .= '
+        <div class="row">';
+        for ($i = 1; $i < 13; $i++){
+            $tkid = ('F' . strval($i));
+            $ticket = Ticket::select('st_id')->where('sl_id', '=', $sl_id)
+                                        ->where('st_id', '=', $tkid)
+                                        ->where('r_id', '=', $room)
+                                        ->first();
+            if ($ticket == null){
+                $html .= '
+                        <label style="cursor: pointer;">
+                        <div class="vip" style="top: 502px; left: '. strval($count) .'px; position: absolute; ">
+                        <input type="checkbox" name="tickets[]" id="'. $tkid .'" value="'. $tkid .'" onclick="myFunction('. $tkid .')">'. $tkid .'
+                        </div>
+                    <label>
+                ';
+            }
+            else {
+                $html .= '<div class="vip" style="top: 502px; left: '. strval($count) .'px; position: absolute; background-color: #D80032">'. $tkid .'</div>';
+            }
+            $count += 45;
+        }
+        $html .= '</div>';
+
+
+        $count = 150;
+        $html .= '
+        <div class="row">';
+        for ($i = 1; $i < 7; $i++){
+            $tkid = ('G' . strval($i));
+            $ticket = Ticket::select('st_id')->where('sl_id', '=', $sl_id)
+                                        ->where('st_id', '=', $tkid)
+                                        ->where('r_id', '=', $room)
+                                        ->first();
+            if ($ticket == null){
+                $html .= '
+                        <label style="cursor: pointer;">
+                        <div class="sweetbox" style="top: 552px; left: '. strval($count) .'px; position: absolute; ">
+                        <input type="checkbox" name="tickets[]" id="'. $tkid .'" value="'. $tkid .'" onclick="myFunction('. $tkid .')">'. $tkid .'
+                        </div>
+                    <label>
+                ';
+            }
+            else {
+                $html .= '<div class="sweetbox" style="top: 552px; left: '. strval($count) .'px; position: absolute; background-color: #D80032">'. $tkid .'</div>';
+            }
+            $count += 80;
+        }
+        $html .= '</div>';
+
+        return $html;
+    }
 }

@@ -116,3 +116,21 @@ Route::prefix('admin')->group(function(){
     });
 
 });
+
+Route::prefix('user')->group(function(){
+    
+    Route::get('/', [App\Http\Controllers\user\MainController::class, 'getmenu']);
+
+    Route::get('menu', [App\Http\Controllers\user\MainController::class, 'getmenu']);
+
+    Route::get('booking/{movie}', [App\Http\Controllers\user\MainController::class, 'getbooking']);
+
+    Route::get('login', [App\Http\Controllers\user\MainController::class, 'getlogin']);
+
+    Route::get('slots/getdata/{slot}', [App\Http\Controllers\user\MainController::class, 'getSlotData']);
+
+    Route::post('invoice', [App\Http\Controllers\user\MainController::class, 'getInvoice']);
+});
+
+
+?>

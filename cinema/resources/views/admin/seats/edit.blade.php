@@ -10,7 +10,8 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>ID Ghế</label><br>
-                <input type="text" name="id" value="{{ $seat->st_id }}" placeholder="Nhập id ghế">
+                <input type="text" name="id" value="{{ $seat->st_id }}" placeholder="Nhập id ghế" readonly>
+                <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                 </div>
             </div>
 
@@ -23,6 +24,7 @@
                         </option>
                         @endforeach
                     </select>
+                    <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                 </div>
             </div>
         </div>
@@ -42,9 +44,9 @@
                         <label for="type_vip" class="custom-control-label">VIP</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input class="custom-control-input" value = "couple" type="radio" id="type_couple" name="type"
-                        {{  $seat->st_type == "couple" ? 'checked=""' : '' }}>
-                        <label for="type_couple" class="custom-control-label">Ghế đôi</label>
+                        <input class="custom-control-input" value = "sweetbox" type="radio" id="type_sweetbox" name="type"
+                        {{  $seat->st_type == "sweetbox" ? 'checked=""' : '' }}>
+                        <label for="type_sweetbox" class="custom-control-label">SweetBox</label>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,6 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-center">
-        {!! $types->links() !!}
+        {!! $types->links('pagination::bootstrap-4') !!}
     </div>
 @endsection

@@ -3,6 +3,7 @@
 
 namespace App\Http\Services\Room;
 use App\Models\Room;
+use App\Models\Seat;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 
@@ -14,11 +15,21 @@ class RoomService{
 
     public function create($request){
         try {
- 
+            $rid = (String) $request->input('id');
+
             Room::create([
-                 'r_id' => (String) $request->input('id'),
-                 'r_capacity' => (String) $request->input('capacity')
+                 'r_id' => $rid,
+                 //'r_capacity' => (String) $request->input('capacity')
+                 'r_capacity' => "78"
             ]);
+
+            for ($i = 1; $i < 13; $i++) Seat::create(['st_id' => ("A". strval($i)) , 'r_id' => $rid , 'st_type' => 'standard']);
+            for ($i = 1; $i < 13; $i++) Seat::create(['st_id' => ("B". strval($i)) , 'r_id' => $rid , 'st_type' => 'standard']);
+            for ($i = 1; $i < 13; $i++) Seat::create(['st_id' => ("C". strval($i)) , 'r_id' => $rid , 'st_type' => 'standard']);
+            for ($i = 1; $i < 13; $i++) Seat::create(['st_id' => ("D". strval($i)) , 'r_id' => $rid , 'st_type' => 'vip']);
+            for ($i = 1; $i < 13; $i++) Seat::create(['st_id' => ("E". strval($i)) , 'r_id' => $rid , 'st_type' => 'vip']);
+            for ($i = 1; $i < 13; $i++) Seat::create(['st_id' => ("F". strval($i)) , 'r_id' => $rid , 'st_type' => 'vip']);
+            for ($i = 1; $i < 7; $i++) Seat::create(['st_id' => ("G". strval($i)) , 'r_id' => $rid , 'st_type' => 'sweetbox']);
          
             Session::flash('success','Tạo Phòng Chiếu thành công');
         } catch (\Exception $err){

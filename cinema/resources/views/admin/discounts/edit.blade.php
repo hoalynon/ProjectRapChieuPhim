@@ -9,7 +9,8 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>ID Khuyến Mãi</label>
-                <input type="text" name="id" value="{{ $discount->dis_id }}" placeholder="Nhập id CTKM">
+                <input type="text" name="id" value="{{ $discount->dis_id }}" placeholder="Nhập id CTKM" readonly>
+                <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                 </div>
             </div>
 

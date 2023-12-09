@@ -14,7 +14,8 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>ID Phim</label>
-                    <input type="text" name="id" value="{{ $movie->mv_id }}" placeholder="Nhập id phim">
+                    <input type="text" name="id" value="{{ $movie->mv_id }}" placeholder="Nhập id phim" readonly>
+                    <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                     </div>
                 </div>
 

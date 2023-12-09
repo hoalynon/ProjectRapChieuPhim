@@ -13,7 +13,8 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>ID</label>
-                <input type="text" name="id" value="{{ $room->r_id }}" placeholder="Nhập ID phòng chiếu">
+                <input type="text" name="id" value="{{ $room->r_id }}" placeholder="Nhập ID phòng chiếu" readonly>
+                <i class="fas fa-ban" style="color: #e60f0f; margin-left: 10px"></i>
                 </div>
             </div>
         </div>

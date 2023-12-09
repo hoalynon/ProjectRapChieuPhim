@@ -18,6 +18,6 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-center">
-        {!! $movies->links() !!}
+        {!! $movies->links('pagination::bootstrap-4') !!}
     </div>
 @endsection
