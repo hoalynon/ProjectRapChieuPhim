@@ -1,6 +1,8 @@
 <x-guest-layout>
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+        
+        {{ __('Đăng ký tài khoản thành công. Chúng tôi vừa gửi cho bạn một email xác nhận tài khoản, hãy bấm vào link xác nhận email đó trước khi có thể đăng nhập và tận hưởng quyền lợi thành viên của WCINEMA nhé!') }}
     </div>
 
     @if (session('status') == 'verification-link-sent')

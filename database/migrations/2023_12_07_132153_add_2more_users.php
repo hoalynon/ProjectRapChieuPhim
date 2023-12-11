@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dateTime('cus_dob');
-            $table->string('cus_gender');
-            $table->string('cus_phone');
+            //
+            $table->integer('cus_point')->nullable();
+            $table->longText('cus_type')->nullable();
+            $table->longText('cus_role')->nullable();
         });
     }
 
@@ -29,6 +30,9 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->dropColumn('cus_point');
+            $table->dropColumn('cus_type');
+            $table->dropColumn('cus_role');
         });
     }
 };
