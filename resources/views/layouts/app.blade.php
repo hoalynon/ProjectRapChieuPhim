@@ -1,41 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-    
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body>
-        <h1>layout app</h1>
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
-</html> --}}
-
-
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -45,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Cinmema') }}</title>
+    <title>Cinema</title>
     
 </head>
 
@@ -54,34 +16,50 @@
     <div>
         <header>
 
-            <a href="#0">
-                <img src="https://blog.luyencode.net/wp-content/uploads/2020/10/cd-logo.png" alt="Logo"
-                    class="logo">
+            <a href="http://127.0.0.1:5500/menu/menu.html">
+                <img src="https://blog.luyencode.net/wp-content/uploads/2020/10/cd-logo.png" alt="Logo" class="logo">
             </a>
-            <nav>
+             
+            <input type="checkbox" id="menu">
+            <label for="menu"> 
+                <i class="fa-solid fa-bars"></i></label>
+            <nav> 
                 <ul>
-                    <li>
-                        <a href="#0">Phim</a>
-                    </li>
-                    <li>
-                        <a href="#0">Lịch chiếu</a>
-                    </li>
-                    <li>
-                        <a href="#0">Đặt vé</a>
-                    </li>
-                    <li>
-                        <a href="#0">Thành viên</a>
-                    </li>
-                    <li>
-                        <a href="#0">Khuyến mãi</a>
-                    </li>
-                    <li>
-                        <a href="#0">Giới thiệu</a>
-                    </li>
-                    <li>
-                        <a href="#0">Liên hệ</a>
-                    </li>
-                </ul>
+                  <li>
+                    <a href="#0">Phim ▾</a>
+                    <ul class="dropdown">
+                      <li> <a href="film_rc.html">Phim đang chiếu</a></li>
+                      <li> <a href="film_cm.html">Phim sắp chiếu</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#0">Lịch chiếu</a>
+                  </li>
+                  <li>
+                    <a href="#0">Đặt vé</a>
+                  </li>
+                  <li>
+                    <a href="#0">Thành viên ▾</a>
+                    <ul class="dropdown">
+                      <li> <a href="#1">Tài khoản thành viên</a></li>
+                      <li> <a href="#1">Quyền lợi</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#0">Khuyến mãi ▾</a>
+                    <ul class="dropdown">
+                      <li> <a href="#1">Đang diễn ra</a></li>
+                      <li> <a href="#1">Sắp tới</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#0">Giới thiệu</a>
+                  </li>
+                  <li>
+                    <a href="#0">Liên hệ</a>
+                  </li>
+              </ul>
+              
             </nav>
 
 

@@ -5,6 +5,18 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.validation a:link {
+  color: rgb(0, 0, 0); /* Màu mặc định cho liên kết chưa truy cập */
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+}
+
+/* Liên kết trong trạng thái đã truy cập */
+.validation a:visited {
+  color: rgb(0, 0, 0); /* Màu cho liên kết đã truy cập */
+  text-decoration: none; /* Loại bỏ gạch chân */
+}
+
 body{
   background-color: #FDF0E4;
   line-height: 1;
@@ -17,19 +29,28 @@ header{
   padding: 20px 15%;
   background-color: #BB2525;
   position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 header nav {
   margin: auto;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header nav ul li {
   background-color: #F9DEC9;
   list-style: none;
   float: left;
-  padding: 14px 20px;
+  padding: 15px 15px;
   cursor: pointer;
+  font-size: clamp(0.5rem, 0.234rem + 0.8511vw, 1rem);
 }
+
 header nav ul li:first-child {
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
@@ -73,6 +94,147 @@ header .logo{
   position: absolute;
   top: 25px;
   left:25px;
+}
+
+nav ul{
+  list-style: none;
+  background: #BB2525;
+}
+
+nav ul li{
+  display: inline-block;
+  position: relative;
+}
+
+nav ul li a{
+  display: block;
+  color: #000000;
+  text-decoration: none;
+  text-align: left;
+  
+}
+
+nav ul li ul.dropdown li{
+  display: block;
+  background: #F9DEC9;
+  width: 200px;
+  height: 20px;
+  border-radius: 0%;
+  align-items: center;
+  display: flex;
+}
+
+nav ul li ul.dropdown{
+  margin-top: 14px;
+  width: 205px;
+  background: #BB2525;
+  position: absolute;
+  z-index: 2;
+  display: none;
+  border-radius: 0px;
+  border: 3px double #BB2525;
+  left: -3%;
+}
+
+nav ul li a:hover{
+  color: #BB2525;
+}
+
+nav ul li:hover ul.dropdown{
+  display: block;
+}
+
+ label{
+  display: none ;
+ }
+
+ input[type="checkbox"] {
+  appearance: none;
+}
+@media screen and (max-width: 980px) {
+
+  header{
+    height: 80px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  label{
+    display: block;
+  }
+
+  nav{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    padding: 15px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+
+  nav ul li a, nav label{
+    color: #faddc5;
+  }
+
+  nav label{
+    text-align: right;
+  }
+
+  header nav ul{
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+  }
+
+  input:checked ~ nav{
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav ul li {
+  background-color: #BB2525;
+  font-size: 15px;
+}
+
+  header nav ul li a {
+  color:#f9dec9;
+  padding: 5px 30px;
+}
+
+header nav ul li a:hover {
+  color:#ffffff;
+}
+
+nav ul li ul.dropdown{
+  width: 235px;
+  top: 40%;
+  left: 50%;
+}
+
+nav ul li ul.dropdown li{
+  display: block;
+  width: 230px;
+  height: 20px;
+  border-radius: 0%;
+  align-items: center;
+  display: flex;
+  padding: 20px 10px;
+}
+
+nav ul li:hover ul.dropdown a{
+  color: rgb(55, 52, 52);
+}
+
+nav ul li:hover ul.dropdown a:hover{
+  display: block;
+  color: #BB2525;
+}
+
 }
 
 /*----------------Body-----------------*/
@@ -184,7 +346,7 @@ header .logo{
   color: #fff;
   font-size: 15px;
   transition: all 0.3s linear;
-  z-index: 100;
+  z-index: 10;
   cursor: pointer;
 }
 i.button:active {
@@ -334,3 +496,4 @@ footer .content .bottom{
   text-decoration: none;
   color: #BB2525;
 }
+
