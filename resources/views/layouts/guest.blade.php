@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Cinmema') }}</title>
+    <title>Cinema</title>
     
 </head>
 
@@ -14,36 +14,52 @@
 
     <div>
         <header>
-
-            <a href="#0">
-                <img src="https://blog.luyencode.net/wp-content/uploads/2020/10/cd-logo.png" alt="Logo"
-                    class="logo">
+            <a href="http://127.0.0.1:5500/menu/menu.html">
+                <img src="https://blog.luyencode.net/wp-content/uploads/2020/10/cd-logo.png" alt="Logo" class="logo">
             </a>
-            <nav>
+             
+            <input type="checkbox" id="menu">
+            <label for="menu"> 
+                <i class="fa-solid fa-bars"></i></label>
+            <nav> 
                 <ul>
-                    <li>
-                        <a href="#0">Phim</a>
-                    </li>
-                    <li>
-                        <a href="#0">Lịch chiếu</a>
-                    </li>
-                    <li>
-                        <a href="#0">Đặt vé</a>
-                    </li>
-                    <li>
-                        <a href="#0">Thành viên</a>
-                    </li>
-                    <li>
-                        <a href="#0">Khuyến mãi</a>
-                    </li>
-                    <li>
-                        <a href="#0">Giới thiệu</a>
-                    </li>
-                    <li>
-                        <a href="#0">Liên hệ</a>
-                    </li>
-                </ul>
+                  <li>
+                    <a href="#0">Phim ▾</a>
+                    <ul class="dropdown">
+                      <li> <a href="film_rc.html">Phim đang chiếu</a></li>
+                      <li> <a href="film_cm.html">Phim sắp chiếu</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#0">Lịch chiếu</a>
+                  </li>
+                  <li>
+                    <a href="#0">Đặt vé</a>
+                  </li>
+                  <li>
+                    <a href="#0">Thành viên ▾</a>
+                    <ul class="dropdown">
+                      <li> <a href="#1">Tài khoản thành viên</a></li>
+                      <li> <a href="#1">Quyền lợi</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#0">Khuyến mãi ▾</a>
+                    <ul class="dropdown">
+                      <li> <a href="#1">Đang diễn ra</a></li>
+                      <li> <a href="#1">Sắp tới</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#0">Giới thiệu</a>
+                  </li>
+                  <li>
+                    <a href="#0">Liên hệ</a>
+                  </li>
+              </ul>
+              
             </nav>
+            
 
 
             {{-- <partial name="_LoginPartial" /> --}}
@@ -58,28 +74,7 @@
                             <a class="nav-link text-dark" id="login" href="{{ route('login') }}">Đăng nhập</a>
                         </span>
                     </div>
-                {{-- @auth
-                    <li class="nav-item">
-                        <a id="manage" class="nav-link text-dark" href="{{ route('profile.show') }}" title="Manage">Hello {{ Auth::user()->name }}!</a>
-                    </li>
-                    <li class="nav-item">
-                        <form id="logoutForm" class="form-inline" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                        </form>
-                    </li>
-                @else
-                    <div class="validation">
-                        <span class="register">
-                            <a class="nav-link text-dark" id="register" href="{{ route('register') }}">Đăng ký</a>
-                        </span>
-            
-                        <hr>
-                        <span class="login">
-                            <a class="nav-link text-dark" id="login" href="{{ route('login') }}">Đăng nhập</a>
-                        </span>
-                    </div>
-                @endauth --}}
+                
             </ul>
 
         </header>
