@@ -2,7 +2,7 @@
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 /*
@@ -16,21 +16,15 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-// Route::get('/', function () {
-//     if (auth()->check()) {
-//         return view('dashboard');
-//     } else {
-//         return view('welcome');
-//     }
-// })->name('dashboard');
-// route::get('/home',[HomeController::class,'index'])->name('home');
+route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
+route::get('test',[HomeController::class,'test'])->middleware(['auth','admin']);
+
 
 Route::get('/register', function () {
     return view('register');

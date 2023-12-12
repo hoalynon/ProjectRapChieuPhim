@@ -26,7 +26,22 @@ class RedirectIfAuthenticated
                 return redirect(RouteServiceProvider::HOME);
             }
         }
-
         return $next($request);
+        // $guards = empty($guards) ? [null] : $guards;
+
+        // foreach ($guards as $guard) {
+        //     if (Auth::guard($guard)->check()) {
+        //         $user = Auth::user();
+        //         if ($user->cus_role === 'admin') {
+        //             return redirect('/admin/dashboard');
+        //         } elseif ($user->cus_role === 'client') {
+        //             return redirect('/dashboard');
+        //         } else {
+        //             return redirect('/welcome');
+        //         }
+        //     }
+        // }
+
+        // return $next($request);
     }
 }
