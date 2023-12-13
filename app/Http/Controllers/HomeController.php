@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\admin\MainController;
 class HomeController extends Controller
 {
     //
@@ -15,7 +16,8 @@ class HomeController extends Controller
                 return view('dashboard');
             }
             else if ($cus_role=='admin'){
-                return view('homeadmin');
+                // return view('homeadmin');
+                return view('/', [MainController::class, 'index']);
             }
             else{
                 return redirect()->back(); 
