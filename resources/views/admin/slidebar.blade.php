@@ -180,7 +180,7 @@
               </li>
             </ul>
           </li>
-
+<!-- 
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-circle"></i>
@@ -197,7 +197,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a href="#" class="nav-link">

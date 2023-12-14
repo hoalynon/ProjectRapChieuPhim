@@ -2,26 +2,26 @@
 
 
 namespace App\Http\Services\Customer;
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 
 class CustomerService{
 
     public function getAll(){
-        return Customer::orderbyDesc('cus_id')->paginate(20);
+        return User::orderbyDesc('id')->paginate(20);
     }
 
     public function getName($id){
-        return Customer::select('cus_name')->where('cus_id', '=', $id)->first();
+        return User::select('cus_name')->where('id', '=', $id)->first();
     }
 
     public function destroy($request){
         $id =  $request->input('id');
-        $customer = Customer::where('cus_id', $id)->first();
+        $user = User::where('id', $id)->first();
         
-        if ($customer){
-            return Customer::where('cus_id', $id)->delete();
+        if ($user){
+            return User::where('id', $id)->delete();
         }
         
         return false;

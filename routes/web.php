@@ -1,6 +1,12 @@
 <?php
-
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
+use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+
 use App\Http\Controllers\admin\AccountController;
 use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\ChartController;
@@ -16,8 +22,38 @@ use App\Http\Controllers\admin\TicketController;
 use App\Http\Controllers\admin\TypeController;
 use App\Http\Controllers\admin\UploadController;
 
-Route::prefix('admin')->group(function(){
-    Route::get('/', [MainController::class, 'index'])->name('admin');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
+// route::get('test',[HomeController::class,'test'])->middleware(['auth','admin']);
+Route::middleware(['auth'])->group(function(){
+    Route::prefix('user')->group(function(){
+    
+        Route::get('/', [App\Http\Controllers\user\MainController::class, 'getmenu']);
+    
+        Route::get('menu', [App\Http\Controllers\user\MainController::class, 'getmenu']);
+
+        Route::get('film_rc', [App\Http\Controllers\user\MainController::class, 'getfilm_rc']);
+
+        Route::get('film_cm', [App\Http\Controllers\user\MainController::class, 'getfilm_cm']);
+
+        Route::get('film_detail/{movie}', [App\Http\Controllers\user\MainController::class, 'getfilm_detail']);
+    
+        Route::get('booking/{movie}', [App\Http\Controllers\user\MainController::class, 'getbooking']);
+    
+        Route::get('login', [App\Http\Controllers\user\MainController::class, 'getlogin']);
+    
+        Route::get('slots/getdata/{slot}', [App\Http\Controllers\user\MainController::class, 'getSlotData']);
+    
+        Route::post('invoice', [App\Http\Controllers\user\MainController::class, 'getInvoice']);
+    });
+
+
+    
+    Route::prefix('admin')->group(function(){
+        Route::get('/', [MainController::class, 'index'])->name('admin');
 
     #customer
     Route::prefix('customers')->group(function(){
@@ -116,20 +152,44 @@ Route::prefix('admin')->group(function(){
 
 });
 
-Route::prefix('user')->group(function(){
-    
-    Route::get('/', [App\Http\Controllers\user\MainController::class, 'getmenu']);
 
-    Route::get('menu', [App\Http\Controllers\user\MainController::class, 'getmenu']);
-
-    Route::get('booking/{movie}', [App\Http\Controllers\user\MainController::class, 'getbooking']);
-
-    Route::get('login', [App\Http\Controllers\user\MainController::class, 'getlogin']);
-
-    Route::get('slots/getdata/{slot}', [App\Http\Controllers\user\MainController::class, 'getSlotData']);
-
-    Route::post('invoice', [App\Http\Controllers\user\MainController::class, 'getInvoice']);
 });
 
 
-?>
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+// verify email
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+//The Email Verification Handler
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+//Resending The Verification Email
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+});
+
+require __DIR__.'/auth.php';

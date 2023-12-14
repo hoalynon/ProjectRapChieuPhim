@@ -15,7 +15,7 @@ class Bill extends Model
 
     protected $fillable = [
         'bi_id',
-        'cus_id',
+        'email',
         'bi_date',
         'tk_count',
         'bi_value'
@@ -26,7 +26,7 @@ class Bill extends Model
         return $this->hasMany(ApplyDiscount::class, 'bi_id', 'bi_id');
     }
 
-    public function customer(){
-        return $this->hasOne(Customer::class, 'cus_id', 'cus_id');
+    public function user(){
+        return $this->hasOne(User::class, 'email', 'email');
     }
 }
