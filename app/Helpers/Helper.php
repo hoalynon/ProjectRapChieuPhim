@@ -3,7 +3,7 @@
 namespace App\Helpers;
 use Illuminate\Support\Str;
 use App\Models\Movie;
-use App\Models\Customer;
+use App\Models\User;
 use App\Models\Ticket;
 use App\Models\Slot;
 
@@ -14,17 +14,17 @@ class Helper{
         foreach($customers as $key => $customer){
                 $html .= '
                 <tr>
-                    <td>' . $customer->cus_id . '</td>
+                    <td>' . $customer->id . '</td>
                     <td>' . $customer->cus_name . '</td>
                     <td>' . $customer->cus_phone . '</td>
                     <td>' . $customer->cus_gender . '</td>
-                    <td>' . $customer->cus_email . '</td>
+                    <td>' . $customer->email . '</td>
                     <td>' . $customer->cus_dob . '</td>
                     <td>' . $customer->cus_type . '</td>
                     <td>' . $customer->cus_point . '</td>
                     <td>
                         <a class="btn btn-danger btn-sm" href="#" 
-                            onclick="removeRow(\'' . $customer->cus_id . '\', \'/admin/customers/destroy\')">
+                            onclick="removeRow(\'' . $customer->id . '\', \'/admin/customers/destroy\')">
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>
@@ -228,12 +228,12 @@ class Helper{
         $html = '';
 
         foreach($bills as $key => $bill){
-                $customer = Customer::select('cus_name')->where('cus_id', '=', $bill->cus_id)->first()->cus_name;
+                $user = User::select('cus_name')->where('email', '=', $bill->email)->first()->cus_name;
 
                 $html .= '
                 <tr>
                     <td>' . $bill->bi_id . '</td>
-                    <td>' . $customer . '</td>
+                    <td>' . $user . '</td>
                     <td>' . $bill->bi_date . '</td>
                     <td>' . $bill->tk_count . '</td>
                     <td>' . $bill->bi_value . '</td>

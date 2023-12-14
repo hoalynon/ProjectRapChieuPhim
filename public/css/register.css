@@ -198,16 +198,20 @@ button.submit span {
   
   .slider-content{
     display: flex;
-    justify-content: space-between;
+  
     min-height: 200px;
   }
   
   .slider-content-left{
     width: 50%;
+    margin: 20px;
+    float:left;
   }
   
   .slider-content-right{
     width: 50%;
+    float: right;
+    margin: 20px;
   }
   
   .user-modal{
@@ -238,9 +242,24 @@ button.submit span {
   
   .form-header--selected {
     color: #F9DEC9;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
     text-decoration: underline;
   }
   
+  .form-header--unselected {
+    color: rgba(0, 0, 0, 0.40);
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;  
+  }
  
   .wrapper {
     display: flex;
@@ -376,7 +395,6 @@ button.submit span {
     background: #ffffff;
   }
   
-  
   footer .content .bottom{
     display: flex;
     flex-wrap: wrap;
@@ -418,4 +436,30 @@ button.submit span {
     color: #BB2525;
   }
   
-  
+  @media screen and (max-width: 650px)  {
+    .slider-content-right{
+      display: none;
+    }
+    .slider-content-left{
+      width: 100%;
+    }
+
+    body,html{
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  @media screen and (max-width: 950px) and (min-width: 651px)  {
+    .slider-content-right{
+      width: 100%;
+    }
+    .slider-content-left{
+      width: 100%;
+    }
+    
+    body,html{
+      font-size: 25px;
+      line-height: 35px;
+    }  
+  }

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slot;
 use App\Models\Movie;
+use App\Models\ChooseType;
+use App\Models\Type;
 use App\Models\Ticket;
 use Carbon\Carbon;
 
@@ -14,6 +16,35 @@ class MainController extends Controller
     public function getmenu(){
         return view('user.menu', [
             'title' => 'Trang chủ đặt vé phim'
+        ]);
+    }
+
+    public function getfilm_rc(){
+        return view('user.film_rc', [
+            'title' => 'Phim đang chiếu',
+            'movies' => Movie::orderby('mv_start')
+                            ->where('mv_start', '<=', Carbon::now('Asia/Ho_Chi_Minh'))
+                            ->where('mv_end', '>=', Carbon::now('Asia/Ho_Chi_Minh'))
+                            ->paginate(20),
+        ]);
+    }
+
+    public function getfilm_cm(){
+        return view('user.film_cm', [
+            'title' => 'Phim sắp chiếu',
+            'movies' => Movie::orderby('mv_start')
+                            ->whereDate('mv_start', '>', Carbon::now('Asia/Ho_Chi_Minh'))
+                            ->paginate(20),
+        ]);
+    }
+
+    public function getfilm_detail(Movie $movie){
+        return view('user.film_detail', [
+            'title' => 'Chi tiết phim',
+            'movie' => $movie,
+            'types' => ChooseType::join('Types','Types.type_id','=','Choose_Types.type_id')
+                                ->where('Choose_Types.mv_id', '=', $movie->mv_id)
+                                ->get(['Types.type_name'])
         ]);
     }
 
@@ -164,6 +195,7 @@ class MainController extends Controller
         }
         return false;
     }
+    
 }
 
 ?>

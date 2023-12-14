@@ -11,13 +11,16 @@
             <a href="/user/menu">
                 <img src="https://blog.luyencode.net/wp-content/uploads/2020/10/cd-logo.png" alt="Logo" class="logo">
             </a>
+            <input type="checkbox" id="menu">
+            <label for="menu"> 
+                <i class="fa-solid fa-bars"></i></label>
             <nav>
               <ul>
                 <li>
                   <a href="#0">Phim ▾</a>
                   <ul class="dropdown">
-                    <li> <a href="#1">Phim đang chiếu</a></li>
-                    <li> <a href="#1">Phim sắp chiếu</a></li>
+                    <li> <a href="/user/film_rc">Phim đang chiếu</a></li>
+                    <li> <a href="/user/film_cm">Phim sắp chiếu</a></li>
                   </ul>
                 </li>
                 <li>
@@ -49,15 +52,20 @@
             </ul>
             </nav>
             
-            <div class="validation">
-              <span class="register">
-                <a href="#0"> <b> Đăng ký </b></a>
-              </span>
-              <hr>
-              <span class="login">
-                <a href="/user/login"> <b>Đăng nhập</b></a>
-              </span>
-            </div>
+            {{-- <partial name="_LoginPartial" /> --}}
+              <ul class="navbar-nav">
+                @auth
+                    <h3>
+                        <a id="manage" class="nav-link text-dark" href="{{ route('profile.show') }}" title="Manage">{{ Auth::user()->cus_name }}</a>
+                    </h3>
+                    <li class="nav-item">
+                        <form id="logoutForm" class="form-inline" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                        </form>
+                    </li>
+                    @endauth
+            </ul>
         </header>
 
       <form method="POST" action="/user/invoice">

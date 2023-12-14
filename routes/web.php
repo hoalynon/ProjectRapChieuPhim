@@ -22,19 +22,24 @@ use App\Http\Controllers\admin\TicketController;
 use App\Http\Controllers\admin\TypeController;
 use App\Http\Controllers\admin\UploadController;
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 // route::get('test',[HomeController::class,'test'])->middleware(['auth','admin']);
-Route::middleware(['auth'])->group(function(){
+
     Route::prefix('user')->group(function(){
     
         Route::get('/', [App\Http\Controllers\user\MainController::class, 'getmenu']);
     
         Route::get('menu', [App\Http\Controllers\user\MainController::class, 'getmenu']);
+
+        Route::get('film_rc', [App\Http\Controllers\user\MainController::class, 'getfilm_rc']);
+
+        Route::get('film_cm', [App\Http\Controllers\user\MainController::class, 'getfilm_cm']);
+
+        Route::get('film_detail/{movie}', [App\Http\Controllers\user\MainController::class, 'getfilm_detail']);
     
         Route::get('booking/{movie}', [App\Http\Controllers\user\MainController::class, 'getbooking']);
     
@@ -47,7 +52,7 @@ Route::middleware(['auth'])->group(function(){
 
 
     
-    Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware(['auth','admin'])->group(function(){
         Route::get('/', [MainController::class, 'index'])->name('admin');
 
     #customer
@@ -148,7 +153,7 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
-});
+
 
 
 Route::get('/register', function () {

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->string('bi_id', 10)->primary();
-            $table->string('cus_id', 10)->nullable(false);
+            $table->string('email', 10)->nullable(false);
             $table->datetime('bi_date');
             $table->integer('tk_count');
             $table->decimal('bi_value', 15, 2, true);
-            $table->foreign('cus_id')->references('cus_id')->on('customers')->onDelete('cascade');
+            $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
         });
     }
 

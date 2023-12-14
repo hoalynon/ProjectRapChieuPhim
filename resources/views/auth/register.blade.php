@@ -1,6 +1,7 @@
 <x-guest-layout>
     <link href="{{ asset('css/register.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
 
     
     <section class="slider">

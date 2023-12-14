@@ -64,7 +64,7 @@
 
 
             {{-- <partial name="_LoginPartial" /> --}}
-              <ul class="navbar-nav">
+              {{-- <ul class="navbar-nav">
                 @auth
                     <h3>
                         <a id="manage" class="nav-link text-dark" href="{{ route('profile.show') }}" title="Manage">{{ Auth::user()->cus_name }}</a>
@@ -76,7 +76,25 @@
                         </form>
                     </li>
                     @endauth
+            </ul> --}}
+            <ul class="validation">
+                @auth
+                <h3>
+                    <a id="manage" href="{{ route('profile.show') }}" title="Manage">
+                        <span class="hello">Xin chào, {{ Auth::user()->cus_name }}</span>
+                    </a>
+                </h3>
+                    <li class="nav-item">
+                        <form id="logoutForm" class="form-inline" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </button>
+                        </form>
+                    </li>
+                    @endauth
             </ul>
+
             
         </header>
         <div>

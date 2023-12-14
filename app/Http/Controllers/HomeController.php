@@ -17,7 +17,9 @@ class HomeController extends Controller
             }
             else if ($cus_role=='admin'){
                 // return view('homeadmin');
-                return view('/', [MainController::class, 'index']);
+                return view('admin.home', [
+                    'title' => 'Trang chủ quản trị'
+                ]);
             }
             else{
                 return redirect()->back(); 
