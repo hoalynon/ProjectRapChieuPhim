@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     @include('admin.head')
+    
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -46,8 +47,26 @@
         </div>
       </li>
 
+      <ul class="validation">
+        @auth
+        <h3>
+            <a id="manage" href="{{ route('profile.show') }}" title="Manage">
+                <span class="hello">Xin chào, {{ Auth::user()->cus_name }}</span>
+            </a>
+        </h3>
+            <li class="nav-item">
+                <form id="logoutForm" class="form-inline" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button id="logout" type="submit" class="nav-link btn btn-link text-dark">
+                      <img src="'images\dashboard\logout.png'" alt="Hình ảnh">
+                    </button>
+                </form>
+            </li>
+            @endauth
+    </ul>
+
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
+      {{-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
@@ -103,9 +122,9 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
-      </li>
+      </li> --}}
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      {{-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
@@ -130,8 +149,8 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
-      <li class="nav-item">
+      </li> --}}
+      {{-- <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
@@ -140,7 +159,7 @@
         <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </nav>
   <!-- /.navbar -->
