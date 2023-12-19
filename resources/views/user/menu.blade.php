@@ -18,8 +18,8 @@
                 <li>
                   <a href="#0">Phim ▾</a>
                   <ul class="dropdown">
-                    <li> <a href="#1">Phim đang chiếu</a></li>
-                    <li> <a href="#1">Phim sắp chiếu</a></li>
+                    <li> <a href="/user/film_rc">Phim đang chiếu</a></li>
+                    <li> <a href="/user/film_cm">Phim sắp chiếu</a></li>
                   </ul>
                 </li>
                 <li>
@@ -101,87 +101,25 @@
 
             <div class="body-film">
               <div class="film">
-                <div class="flm rc">
-                    <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f1"><img src="/template/image/menu/6.png" alt=""></a> 
+                  <div class="flm rc">
+                      @foreach($movies_rc as $movie)
+                        <div class="film-slider">
+                          <div class="film-img"> 
+                            <a href="/user/film_detail/{{$movie->mv_id}}"><img src="{{$movie->mv_link_poster}}" alt=""></a> 
+                          </div>
+                        </div>
+                      @endforeach
                     </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f2"><img src="/template/image/menu/7.png" alt=""></a> 
+                    <div class="flm cm">
+                      @foreach($movies_cm as $movie)
+                        <div class="film-slider">
+                            <div class="film-img"> 
+                              <a href="/user/film_detail/{{$movie->mv_id}}"><img src="{{$movie->mv_link_poster}}" alt=""></a> 
+                            </div>
+                        </div>
+                      @endforeach
                     </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f3"><img src="/template/image/menu/8.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f4"><img src="/template/image/menu/9.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f5"><img src="/template/image/menu/10.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f6"><img src="/template/image/menu/11.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f7"><img src="/template/image/menu/12.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f8"><img src="/template/image/menu/13.png" alt=""></a> 
-                    </div>
-                  </div>
                 </div>
-                
-                <div class="flm cm">
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f1"><img src="/template/image/menu/10.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f2"><img src="/template/image/menu/13.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f3"><img src="/template/image/menu/8.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f4"><img src="/template/image/menu/6.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f5"><img src="/template/image/menu/11.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f6"><img src="/template/image/menu/7.png" alt=""></a> 
-                    </div>
-                  </div>
-                  <div class="film-slider">
-                    <div class="film-img"> 
-                      <a href="#f8"><img src="/template/image/menu/13.png" alt=""></a> 
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div> 
           </div>
 

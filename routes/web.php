@@ -22,13 +22,11 @@ use App\Http\Controllers\admin\TicketController;
 use App\Http\Controllers\admin\TypeController;
 use App\Http\Controllers\admin\UploadController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'getwelcome']);
 
 route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 // route::get('test',[HomeController::class,'test'])->middleware(['auth','admin']);
-Route::middleware(['auth'])->group(function(){
+
     Route::prefix('user')->group(function(){
     
         Route::get('/', [App\Http\Controllers\user\MainController::class, 'getmenu']);
@@ -52,7 +50,7 @@ Route::middleware(['auth'])->group(function(){
 
 
     
-    Route::prefix('admin')->group(function(){
+    Route::prefix('admin')->middleware(['auth','admin'])->group(function(){
         Route::get('/', [MainController::class, 'index'])->name('admin');
 
     #customer
@@ -153,7 +151,6 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
-});
 
 
 Route::get('/register', function () {

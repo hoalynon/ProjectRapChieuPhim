@@ -49,84 +49,23 @@
                 <div class="body-film">
                   <div class="film">
                     <div class="flm rc">
+                      @foreach($movies_rc as $movie)
                         <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f1"><img src="images\dashboard\6.png" alt=""></a> 
+                          <div class="film-img"> 
+                            <a href="/user/film_detail/{{$movie->mv_id}}"><img src="{{$movie->mv_link_poster}}" alt=""></a> 
+                          </div>
                         </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f2"><img src="images\dashboard\7.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f3"><img src="images\dashboard\8.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f4"><img src="images\dashboard\9.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f5"><img src="images\dashboard\10.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f6"><img src="images\dashboard\11.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f7"><img src="images\dashboard\12.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f8"><img src="images\dashboard\13.png" alt=""></a> 
-                        </div>
-                      </div>
+                      @endforeach
                     </div>
                     
                     <div class="flm cm">
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f1"><img src="images\dashboard\10.png" alt=""></a> 
+                    @foreach($movies_cm as $movie)
+                        <div class="film-slider">
+                          <div class="film-img"> 
+                            <a href="/user/film_detail/{{$movie->mv_id}}"><img src="{{$movie->mv_link_poster}}" alt=""></a> 
+                          </div>
                         </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f2"><img src="images\dashboard\13.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f3"><img src="images\dashboard\8.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f4"><img src="images\dashboard\6.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f5"><img src="images\dashboard\11.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f6"><img src="images\dashboard\7.png" alt=""></a> 
-                        </div>
-                      </div>
-                      <div class="film-slider">
-                        <div class="film-img"> 
-                          <a href="#f8"><img src="images\dashboard\13.png" alt=""></a> 
-                        </div>
-                      </div>
+                      @endforeach
                     </div>
                   </div>
                 </div> 
