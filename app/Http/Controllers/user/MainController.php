@@ -15,7 +15,14 @@ class MainController extends Controller
 {
     public function getmenu(){
         return view('user.menu', [
-            'title' => 'Trang chủ đặt vé phim'
+            'title' => 'Trang chủ đặt vé phim',
+            'movies_rc' => Movie::orderby('mv_start')
+                            ->where('mv_start', '<=', Carbon::now('Asia/Ho_Chi_Minh'))
+                            ->where('mv_end', '>=', Carbon::now('Asia/Ho_Chi_Minh'))
+                            ->paginate(8),
+            'movies_cm' => Movie::orderby('mv_start')
+            ->whereDate('mv_start', '>', Carbon::now('Asia/Ho_Chi_Minh'))
+            ->paginate(8)
         ]);
     }
 
@@ -25,7 +32,7 @@ class MainController extends Controller
             'movies' => Movie::orderby('mv_start')
                             ->where('mv_start', '<=', Carbon::now('Asia/Ho_Chi_Minh'))
                             ->where('mv_end', '>=', Carbon::now('Asia/Ho_Chi_Minh'))
-                            ->paginate(20),
+                            ->paginate(8),
         ]);
     }
 
@@ -34,7 +41,7 @@ class MainController extends Controller
             'title' => 'Phim sắp chiếu',
             'movies' => Movie::orderby('mv_start')
                             ->whereDate('mv_start', '>', Carbon::now('Asia/Ho_Chi_Minh'))
-                            ->paginate(20),
+                            ->paginate(8),
         ]);
     }
 
@@ -183,9 +190,11 @@ class MainController extends Controller
                     break;
             }
         }
-        Session::flash('success', 'Các vé đều hợp lệ');
-        dd($seats);
-        return redirect('user.invoice');
+        // Session::flash('success', 'Các vé đều hợp lệ');
+        // dd($seats);
+        return view('user.invoice')->with('seats', $seats)
+                                   ->with('slot', $slot)
+                                   ->with('room', $room);
     }
 
     public function checkSeat($arrayseat, $seat){

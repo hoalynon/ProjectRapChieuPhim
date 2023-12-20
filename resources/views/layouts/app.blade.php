@@ -28,8 +28,8 @@
                   <li>
                     <a href="#0">Phim ▾</a>
                     <ul class="dropdown">
-                      <li> <a href="film_rc.html">Phim đang chiếu</a></li>
-                      <li> <a href="film_cm.html">Phim sắp chiếu</a></li>
+                      <li> <a href="/user/film_rc">Phim đang chiếu</a></li>
+                      <li> <a href="/user/film_cm">Phim sắp chiếu</a></li>
                     </ul>
                   </li>
                   <li>
@@ -62,21 +62,6 @@
               
             </nav>
 
-
-            {{-- <partial name="_LoginPartial" /> --}}
-              {{-- <ul class="navbar-nav">
-                @auth
-                    <h3>
-                        <a id="manage" class="nav-link text-dark" href="{{ route('profile.show') }}" title="Manage">{{ Auth::user()->cus_name }}</a>
-                    </h3>
-                    <li class="nav-item">
-                        <form id="logoutForm" class="form-inline" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                        </form>
-                    </li>
-                    @endauth
-            </ul> --}}
             <ul class="validation">
                 @auth
                 <h3>

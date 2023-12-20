@@ -1,0 +1,451 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body{
+    background-color: #FDF0E4;
+    width: 100%;
+    line-height: 1;
+  }
+    
+  header{
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+    padding: 20px 15%;
+    background-color: #BB2525;
+    position: relative;
+  }
+    
+  header nav {
+    margin: auto;
+  }
+    
+  header nav ul li {
+    background-color: #F9DEC9;
+    list-style: none;
+    float: left;
+    padding: 14px 20px;
+    cursor: pointer;
+  }
+  header nav ul li:first-child {
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+  }
+  header nav ul li:last-child {
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+  header nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  header nav ul li:hover{
+    color: #BB2525;
+  }
+    
+  .validation {
+    display: flex;
+    background-color: #F9DEC9;
+    padding: 5px;
+    border-radius: 60px;
+    align-items: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+.red{
+    color: #BB2825;
+}
+  .validation span {
+    padding: 6px 14px;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+    
+  header .logo{
+    position: absolute;
+    top: 25px;
+    left:25px;
+  }
+    
+  /*----------------Body-----------------*/
+  .form-header--selected {
+    color: #BB2825;
+    text-align: center;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .form-header--unselected {
+    color: rgba(0, 0, 0, 0.40);
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;  
+  }
+  
+  .container{
+    display: flex;
+    background: #F9DEC9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+  }
+    
+  .container .left-content{
+    width: 60%;
+    margin: 20px;
+    float:left;
+  }
+     
+  .container .right-content{
+    width: 21%;
+    float: right;
+    margin: 20px;
+    background-color: #ffffff;
+  }
+
+  .text-center{
+    text-align: center;
+    width:100%;
+  }
+  .text-right{
+    text-align: right;
+  }
+   .text-left{
+    text-align: left;
+  }
+  td{
+    padding:0;
+  }
+  .info-filled table,.info-filled th,.info-filled td{
+    background-color: #ffffff;
+    border:1px solid rgba(0, 0, 0, 0.60);
+  }
+  table{
+    border-collapse:collapse;
+}
+.info-filled label{
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    padding:5px;
+}
+.info-filled span, .payment-method span{
+    font-weight: bold;
+}
+.payment-method, .info-filled{
+    line-height: 30px;
+    padding-left: 15%;
+}
+  .fill{
+    border: 0;
+  }
+  .right-content table{
+    margin: 15px;
+    table-layout: fixed;
+    width: auto;
+  }
+
+   .right-content tbody{
+    line-height: normal;
+  }
+  .right-content tr td, .left-content tr td{
+    width: 500px;
+  }
+  button {
+    box-sizing: border-box;
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 48px;
+    margin-top: 22px;
+    font: 700 20px Inter;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    background: rgba(101, 177, 25, 0.71);
+    border: none;
+  }
+  /*Thông tin phim*/
+  .bottom-content{
+    background-color: rgba(187, 37, 37, 0.30);
+  }
+  
+  .format-bg-top {
+    width: 100%;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-top-seatmap.png) repeat-x top left transparent;
+    height: 8px;
+    overflow: hidden;
+  }
+  
+  ul li{
+    list-style: none;
+  }
+  .minicart-wrapper{
+    padding-left: 120px;
+    font-size: 0;
+    color: #000000;
+    width: 750px;
+    display: inline-block;
+    margin: 0 3px;
+  }
+  
+  .minicart-wrapper .item {
+    display: inline-block;
+    margin-left: 1%;
+    font-size: 20px;
+  }
+  .minicart-wrapper .product-detail {
+    padding-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 10px;
+  }
+  .info-wrapper img {
+    width: 74px;
+    height: 108px;
+    display: inline-block;
+  }
+  .info-wrapper td {
+      padding: 3px;
+      font-weight: normal;
+      white-space: normal;
+      vertical-align: top;
+  }
+  .info-wrapper td.label {
+    font-weight: bold;
+  }
+
+  .minicart-wrapper .timer{
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+    position: relative; 
+    display: inline-block;
+    left: 80%;
+}
+  .format-bg-bottom {
+    width: 100%;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-bottom-seatmap.png) repeat-x bottom left transparent;
+    height: 8px;
+    overflow: hidden;
+  }
+
+  .sbm-btn{
+    display: none;
+  }
+
+  
+  /*-------------Footer---------------*/
+    footer{
+      padding-top: 15px;
+      position: relative;
+      background: #FDF0E4;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      min-height: 200px;
+    }
+    footer::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 60px;
+      height: 2px;
+      width: 100%;
+      background: #BB2525;
+    }
+    
+    footer-content{
+      max-width: 1250px;
+      margin: auto;
+      padding: 20px 30px 30px 20px;
+    }
+    
+    footer .content .top{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    .content .top .logo-details{
+      padding-left:100px;
+    
+    }
+    .content .top .media-icons{
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .content .top .media-icons a{
+      height: 40px;
+      width:40px;
+      margin: 0 8px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      color:#ffffff;
+      font-size: 17px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+    
+    .top .media-icons a:nth-child(1){
+      background:#4267B2;
+    }
+    .top .media-icons a:nth-child(1):hover{
+      color:#4267B2;
+      background: #ffffff;
+    }
+    .top .media-icons a:nth-child(2){
+      background:#e1306c;
+    }
+    .top .media-icons a:nth-child(2):hover{
+      background:#e1306c;
+      background: #ffffff;
+    }
+    .top .media-icons a:nth-child(3){
+      background:#ff0000;
+    }
+    .top .media-icons a:nth-child(3):hover{
+      background:#ff0000;
+      background: #ffffff;
+    }
+    
+    
+    footer .content .bottom{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 3.5rem;
+      padding: 10px;
+    }
+    
+    .content .bottom .link-boxes:first-child{
+      padding-left: 100px;
+    }
+    .content .bottom .link-boxes:last-child{
+      padding-right: 100px;
+    }
+    .bottom .link-boxes h4{
+      color:#000000;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    
+    .link-boxes .box{
+      margin-top: 5px;
+    }
+    
+    .link-boxes .box li{
+      list-style: none;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    
+    .link-boxes .box li a{
+      text-decoration: none;
+      color: #000000;
+      font-size: 15px;
+    }
+    
+    .link-boxes .box li a:hover{
+      text-decoration: none;
+      color: #BB2525;
+    }
+    
+    @media screen and (max-width: 650px)  {
+      body {
+          transform: scale(0.9);
+      }
+  
+      .heading{
+          padding: 0px 20px;
+      }
+  
+      .heading h2{
+          font-size: 28px;
+      }
+  
+      .film-detail{
+          padding: 0px;
+          height: 700px;
+      }
+  
+      .detail{
+          padding: 20px;
+          flex-direction: column;
+      }
+  
+      .detail-img{
+          margin-right: 0px;
+          margin-bottom: 20px;
+      }
+  
+      .detail-content h2{
+          font-size: 35px;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+      }
+  
+      .film-heading h2{
+          font-size: 35px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+      }
+  
+      .btns{
+          margin: 0;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+      }
+    }
+  
+/*------Responsive-----*/
+  @media screen and (max-width: 650px)  {
+    .right-content{
+      display: none;
+    }
+    .sbm-btn{
+      display:inline;
+    }
+    body,html{
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  @media screen and (max-width: 950px) and (min-width: 651px)  {
+      .right-content tr td{
+      width: 400px;
+    }
+
+    .left-content tr td{
+      width: 300px;
+    }
+    
+    body,html{
+      font-size: 25px;
+      line-height: 35px;
+    }  
+  }
+  

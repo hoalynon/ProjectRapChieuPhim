@@ -22,9 +22,7 @@ use App\Http\Controllers\admin\TicketController;
 use App\Http\Controllers\admin\TypeController;
 use App\Http\Controllers\admin\UploadController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'getwelcome']);
 
 route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 // route::get('test',[HomeController::class,'test'])->middleware(['auth','admin']);
@@ -47,7 +45,7 @@ route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('h
     
         Route::get('slots/getdata/{slot}', [App\Http\Controllers\user\MainController::class, 'getSlotData']);
     
-        Route::post('invoice', [App\Http\Controllers\user\MainController::class, 'getInvoice']);
+        Route::post('invoice', [App\Http\Controllers\user\MainController::class, 'getInvoice'])->name('invoice');
     });
 
 
@@ -151,7 +149,6 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function(){
     });
 
 });
-
 
 
 

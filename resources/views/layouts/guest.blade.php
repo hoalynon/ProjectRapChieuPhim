@@ -26,8 +26,8 @@
                   <li>
                     <a href="#0">Phim ▾</a>
                     <ul class="dropdown">
-                      <li> <a href="film_rc.html">Phim đang chiếu</a></li>
-                      <li> <a href="film_cm.html">Phim sắp chiếu</a></li>
+                      <li> <a href="/user/film_rc">Phim đang chiếu</a></li>
+                      <li> <a href="/user/film_cm">Phim sắp chiếu</a></li>
                     </ul>
                   </li>
                   <li>

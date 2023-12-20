@@ -58,7 +58,8 @@
                 <form id="logoutForm" class="form-inline" action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button id="logout" type="submit" class="nav-link btn btn-link text-dark">
-                      <img src="'images\dashboard\logout.png'" alt="Hình ảnh">
+                      {{-- <img src="'images\dashboard\logout.png'" alt="Đăng xuất"> --}}
+                      Đăng xuất
                     </button>
                 </form>
             </li>

@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="detail-content">
-                        <h2> PHIM {{$movie->mv_name}} </h2>
+                        <h2> {{$movie->mv_name}} </h2>
                         <p> <strong> Thể loại: </strong>
                         @foreach($types as $type)
                              {{ $type->type_name }} , 
