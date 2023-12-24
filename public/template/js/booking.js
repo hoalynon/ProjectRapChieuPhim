@@ -18,6 +18,9 @@
             } else {
               amount -= baseprice;
             }
+
+            $('#hiddentotalpay').val(amount);
+
             document.querySelector(".amount").innerHTML = amount;
           }
 

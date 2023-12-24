@@ -283,6 +283,8 @@
         <input type="hidden" value="70000" id="baseprice">
         <input type="hiden" id="hiddenslot" name="slot">
         <input type="hiden" id="hiddenroom" name="room">
+        <input type="hiden" id="hiddenmovieid" name="movieid" value="{{ $movie->mv_id }}">
+        <input type="hiden" id="hiddentotalpay" name="totalpay" value="0">
         @csrf
 </form>
 

@@ -9,7 +9,10 @@ use App\Models\Movie;
 use App\Models\ChooseType;
 use App\Models\Type;
 use App\Models\Ticket;
+use App\Models\User;
+use App\Models\Bill;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -85,12 +88,18 @@ class MainController extends Controller
         $seats = $request->input("tickets");
         $slot = $request->input("slot");
         $room = $request->input("room");
+        $movieid = $request->input("movieid");
+        $movie = Movie::where('mv_id', '=', $movieid)->first();
+        $totalpay = (float)$request->input("totalpay");
+        $count = sizeof($seats);
+        
         $check = true;
         if ($seats == null){
             Session::flash('error', 'Vui lòng chọn ghế trước khi thanh toán');
             return redirect()->back();
         }
         foreach ($seats as $seat){
+
             switch($seat){
                 case "A2":
                     if (Ticket::where('sl_id', '=', $slot)->where('st_id','=','A1')->first() == null
@@ -192,9 +201,13 @@ class MainController extends Controller
         }
         // Session::flash('success', 'Các vé đều hợp lệ');
         // dd($seats);
+
         return view('user.invoice')->with('seats', $seats)
                                    ->with('slot', $slot)
-                                   ->with('room', $room);
+                                   ->with('room', $room)
+                                   ->with('movie', $movie)
+                                   ->with('totalpay', $totalpay)
+                                   ->with('count', $count);
     }
 
     public function checkSeat($arrayseat, $seat){
@@ -203,6 +216,43 @@ class MainController extends Controller
                 return true;
         }
         return false;
+    }
+
+    public function getInfo(){
+
+        $user = User::where('cus_name', '=', Auth::user()->cus_name)->first();
+        $email = $user->email;
+        $bills = Bill::where('email','=',$email)->orderBy('Bills.bi_date', 'desc')->get();
+        $tickets = Ticket::join('Bills','Bills.bi_id','=','Tickets.bi_id')
+                                ->join('Movies','Movies.mv_id','=','Tickets.mv_id')
+                                ->where('Bills.email', '=', $email)
+                                ->orderBy('Bills.bi_date', 'desc')
+                                ->get();
+        return view('user.info', [
+            'title' => 'Thông tin cá nhân',
+            'user' => $user,
+            'bills' => $bills,
+            'tickets' => $tickets
+        ]);
+    }
+
+    public function postInfo(Request $request){
+        $user = User::where('email','=', (String) $request->input('email'))->first();
+
+        $this->validate($request, [
+            'name' => 'required',
+            'phone' => 'required',
+            'birth' => 'required',
+            'gender' => 'required'
+        ]);
+
+        $user->cus_name = (String) $request->input('name');
+        $user->cus_dob = $request->input('birth');
+        $user->cus_phone = (String) $request->input('phone');
+        $user->cus_gender = (String) $request->input('gender');
+        $user->save();
+
+         return redirect('/user/info');
     }
     
 }

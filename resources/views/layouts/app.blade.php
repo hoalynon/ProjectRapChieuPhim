@@ -65,7 +65,7 @@
             <ul class="validation">
                 @auth
                 <h3>
-                    <a id="manage" href="{{ route('profile.show') }}" title="Manage">
+                    <a id="manage" href="{{ route('user.info') }}" title="Manage">
                         <span class="hello">Xin chào, {{ Auth::user()->cus_name }}</span>
                     </a>
                 </h3>

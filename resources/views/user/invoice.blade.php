@@ -210,7 +210,7 @@
                             <table class="info-wrapper">
                                 <tbody>
                                     <tr>
-                                        <td class="label" colspan="2">PAW Patrol: Phim Siêu Đẳng</td>
+                                        <td class="label" colspan="2">{{ $movie->mv_id }}</td>
                                     </tr>
                                     <tr>
                                         <td class="label">Suất chiếu:</td>

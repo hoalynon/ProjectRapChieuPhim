@@ -46,6 +46,12 @@ route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('h
         Route::get('slots/getdata/{slot}', [App\Http\Controllers\user\MainController::class, 'getSlotData']);
     
         Route::post('invoice', [App\Http\Controllers\user\MainController::class, 'getInvoice'])->name('invoice');
+
+        Route::middleware('auth')->group(function () {
+            Route::get('info', [App\Http\Controllers\user\MainController::class, 'getInfo'])->name('user.info');
+
+            Route::post('info', [App\Http\Controllers\user\MainController::class, 'postInfo']);
+        });
     });
 
 
