@@ -46,7 +46,7 @@
 
 
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Cập Nhật Khuyến Mãi</button>
+        <button type="submit" class="btn btn-primary" style="background-color:#bf3030;">Cập Nhật Khuyến Mãi</button>
     </div>
 
     @csrf

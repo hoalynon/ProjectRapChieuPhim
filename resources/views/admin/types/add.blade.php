@@ -30,7 +30,7 @@
 
 
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Tạo Thể Loại</button>
+        <button type="submit" class="btn btn-primary" style="background-color:#bf3030;">Tạo Thể Loại</button>
     </div>
 
     @csrf

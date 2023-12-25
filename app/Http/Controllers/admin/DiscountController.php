@@ -27,10 +27,10 @@ class DiscountController extends Controller
 
     public function store(Request $request){
         $this->validate($request, [
-            'id' => 'required',
-            'start' => 'required',
-            'end' => 'required',
-            'percent' => 'required'
+            'id' => 'required|distinct',
+            'start' => 'required|date|after:today',
+            'end' => 'required|date|after:start',
+            'percent' => 'required|numeric|between:0,100.00'
         ]);
 
         $this->discountService->create($request);
@@ -55,10 +55,10 @@ class DiscountController extends Controller
     public function update(Discount $discount, Request $request){
         
         $this->validate($request, [
-            'id' => 'required',
-            'start' => 'required',
-            'end' => 'required',
-            'percent' => 'required'
+            'id' => 'required|distinct',
+            'start' => 'required|date|after:today',
+            'end' => 'required|date|after:start',
+            'percent' => 'required|numeric|between:0,100.00'
         ]);
          $this->discountService->update($discount, $request);
          return redirect('/admin/discounts/list');

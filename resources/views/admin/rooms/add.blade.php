@@ -17,8 +17,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                <label>Sức Chứa</label>
-                <input type="number" name="capacity" value="{{ old('capacity') }}" min="0" placeholder="Nhập sức chứa phòng chiếu">
+                <!-- <label>Sức Chứa</label> -->
+                <input type="hidden" name="capacity" value="0" min="0" placeholder="Nhập sức chứa phòng chiếu">
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
 
 
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Tạo Phòng Chiếu</button>
+        <button type="submit" class="btn btn-primary" style="background-color:#bf3030;">Tạo Phòng Chiếu</button>
     </div>
 
     @csrf

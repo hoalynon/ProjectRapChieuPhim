@@ -33,11 +33,11 @@ class SlotController extends Controller
 
     public function store(Request $request){
         $this->validate($request, [
-            'id' => 'required',
+            'id' => 'required|distinct',
             'room' => 'required',
             'movie' => 'required',
-            'start' => 'required',
-            'price' => 'required'
+            'start' => 'required|date|after:tomorrow',
+            'price' => 'required|numeric|min:0|not_in:0'
         ]);
 
         $this->slotService->create($request, $this->movieService->getDuration($request->input('movie')));
@@ -65,11 +65,11 @@ class SlotController extends Controller
     public function update(Slot $slot, Request $request){
         
         $this->validate($request, [
-            'id' => 'required',
+            'id' => 'required|distinct',
             'room' => 'required',
             'movie' => 'required',
-            'start' => 'required',
-            'price' => 'required'
+            'start' => 'required|date|after:tomorrow',
+            'price' => 'required|numeric|min:0|not_in:0'
         ]);
          $this->slotService->update($slot, $request, $this->movieService->getDuration($request->input('movie')));
          return redirect('/admin/slots/list');

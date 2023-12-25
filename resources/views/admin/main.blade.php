@@ -84,7 +84,7 @@
             <div class="col-md-12">
 
               <div class="card card-primary mt-3">
-                <div class="card-header">
+                <div class="card-header" style="background-color:#bf3030;">
                   <h3 class="card-title">{{$title}}</h3>
                 </div>
 

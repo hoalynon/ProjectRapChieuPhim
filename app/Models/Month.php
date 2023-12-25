@@ -15,7 +15,7 @@ class Month extends Model
 
     protected $fillable = [
         'mre_id',
-        'mre_year',
+        'mre_month',
         'mre_yre_id',
         'mre_count',
         'mre_value',

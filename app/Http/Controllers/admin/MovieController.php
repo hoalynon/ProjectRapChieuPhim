@@ -30,10 +30,10 @@ class MovieController extends Controller
 
     public function store(Request $request){
         $this->validate($request, [
-            'id' => 'required',
+            'id' => 'required|distinct',
             'name' => 'required',
-            'start' => 'required',
-            'end' => 'required',
+            'start' => 'required|date|after:today',
+            'end' => 'required|date|after:start',
             'duration' => 'required',
             'restrict' => 'required',
             'caption' => 'required',
@@ -65,10 +65,10 @@ class MovieController extends Controller
     public function update(Movie $movie, Request $request){
         
         $this->validate($request, [
-            'id' => 'required',
+            'id' => 'required|distinct',
             'name' => 'required',
-            'start' => 'required',
-            'end' => 'required',
+            'start' => 'required|date|after:today',
+            'end' => 'required|date|after:start',
             'duration' => 'required',
             'restrict' => 'required',
             'caption' => 'required',

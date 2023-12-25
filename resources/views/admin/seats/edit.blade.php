@@ -56,7 +56,7 @@
 
 
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Cập Nhật Ghế</button>
+        <button type="submit" class="btn btn-primary" style="background-color:#bf3030;">Cập Nhật Ghế</button>
     </div>
 
     @csrf

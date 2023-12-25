@@ -45,7 +45,7 @@
 
 
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Tạo Khuyến Mãi</button>
+        <button type="submit" class="btn btn-primary" style="background-color:#bf3030;">Tạo Khuyến Mãi</button>
     </div>
 
     @csrf

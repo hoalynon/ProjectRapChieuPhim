@@ -26,7 +26,7 @@ class RoomController extends Controller
 
         $this->validate($request, [
             'id' => 'required',
-            'capacity' => 'required'
+            'capacity' => 'required|Integer'
         ]);
 
         $this->roomService->create($request);
@@ -51,7 +51,7 @@ class RoomController extends Controller
         
         $this->validate($request, [
             'id' => 'required',
-            'capacity' => 'required'
+            'capacity' => 'required|Integer'
         ]);
          $this->roomService->update($room, $request);
         return redirect('/admin/rooms/list');

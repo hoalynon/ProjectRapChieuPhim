@@ -53,7 +53,7 @@
 
 
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Tạo Suất Chiếu</button>
+        <button type="submit" class="btn btn-primary" style="background-color:#bf3030;">Tạo Suất Chiếu</button>
     </div>
 
     @csrf

@@ -51,7 +51,7 @@
 
 
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Tạo Ghế</button>
+        <button type="submit" class="btn btn-primary" style="background-color:#bf3030;">Tạo Ghế</button>
     </div>
 
     @csrf

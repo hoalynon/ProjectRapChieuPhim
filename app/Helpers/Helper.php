@@ -22,12 +22,12 @@ class Helper{
                     <td>' . $customer->cus_dob . '</td>
                     <td>' . $customer->cus_type . '</td>
                     <td>' . $customer->cus_point . '</td>
-                    <td>
+                    <!-- <td>
                         <a class="btn btn-danger btn-sm" href="#" 
                             onclick="removeRow(\'' . $customer->id . '\', \'/admin/customers/destroy\')">
                             <i class="fas fa-trash"></i>
                         </a>
-                    </td>
+                    </td> -->
                 </tr>
                 ';
 
@@ -123,9 +123,7 @@ class Helper{
                     <td>' . $room->r_id . '</td>
                     <td>' . $room->r_capacity . '</td>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="/admin/rooms/edit/' . $room->r_id . '" >
-                            <i class="fas fa-edit"></i>
-                        </a>
+                        
                         <a class="btn btn-danger btn-sm" href="#" 
                             onclick="removeRow(\'' . $room->r_id . '\', \'/admin/rooms/destroy\')">
                             <i class="fas fa-trash"></i>

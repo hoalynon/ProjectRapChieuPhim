@@ -160,7 +160,7 @@
 
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Cập nhật Phim</button>
+            <button type="submit" class="btn btn-primary" style="background-color:#bf3030;">Cập nhật Phim</button>
         </div>
 
         @csrf

@@ -54,7 +54,11 @@ class MainController extends Controller
             'movie' => $movie,
             'types' => ChooseType::join('Types','Types.type_id','=','Choose_Types.type_id')
                                 ->where('Choose_Types.mv_id', '=', $movie->mv_id)
-                                ->get(['Types.type_name'])
+                                ->get(['Types.type_name']),
+            'movies' => Movie::orderby('mv_start')
+                                ->where('mv_start', '<=', Carbon::now('Asia/Ho_Chi_Minh'))
+                                ->where('mv_end', '>=', Carbon::now('Asia/Ho_Chi_Minh'))
+                                ->paginate(8)
         ]);
     }
 
@@ -237,12 +241,13 @@ class MainController extends Controller
     }
 
     public function postInfo(Request $request){
+
         $user = User::where('email','=', (String) $request->input('email'))->first();
 
         $this->validate($request, [
             'name' => 'required',
-            'phone' => 'required',
-            'birth' => 'required',
+            'phone' => 'required|regex:/(0)[0-9]{9}/',
+            'birth' => 'required|date|before:today',
             'gender' => 'required'
         ]);
 
